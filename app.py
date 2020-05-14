@@ -13,6 +13,10 @@ def main():
     st.sidebar.info('https://raw.githubusercontent.com/datasets/covid-19/master/data/countries-aggregated.csv')
     data = get_timeseries_data()
     data_global = data.groupby('Date').sum()
+    
+
+    st.write(data_global.tail(1))
+    st.write(f"Today's calculated daily rate of change: {np.diff(data_global['Confirmed'])[-1]}")
 
     fig0 = go.Figure()
     fig0.add_trace(go.Line(x=data_global.index,y=data_global.Confirmed,name=f'Confirmed global cases'))
@@ -23,6 +27,8 @@ def main():
     
     country = st.selectbox("Select a country",data.Country.unique())
     data_country = data[data['Country'] == country]
+    st.write(data_country.tail(1))
+    st.write(f"Today's calculated daily rate of change for {country}: {np.diff(data_country['Confirmed'])[-1]}")
 
     fig = go.Figure()
     fig.add_trace(go.Line(x=data_country.Date,y=data_country.Confirmed,name=f'Confirmed {country} cases'))
