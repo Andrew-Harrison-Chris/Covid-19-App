@@ -217,13 +217,10 @@ statsmodels==0.10.1
 streamlit==0.52.2
 sympy==1.4
 ta==0.5.11
-TA-Lib==0.4.17
 tables==3.5.2
-tblib==1.4.0
 termcolor==1.1.0
 terminado==0.8.2
 testpath==0.4.2
-tflearn==0.3.2
 toml==0.10.0
 toolz==0.10.0
 tornado==5.1.1
